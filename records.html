@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h2>Records</h2>
+
+{% for r in results %}
+<div class="card">
+<b>{{ r.name }}</b><br>
+
+{% for i in range(r.subjects|length) %}
+{{ r.subjects[i] }} : {{ r.marks[i] }} ({{ r.grades[i] }})<br>
+{% endfor %}
+
+<b>CGPA:</b> {{ r.cgpa }}<br>
+
+<a href="/chart/{{ r.id }}">📊 Chart</a>
+<a href="/delete/{{ r.id }}">🗑 Delete</a>
+</div>
+{% endfor %}
+
+<a href="/dashboard">🔙 Back</a>
+
+</body>
+</html>

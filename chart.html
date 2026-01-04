@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h3>{{ name }} - Subject Marks</h3>
+
+<canvas id="myChart"></canvas>
+
+<script>
+new Chart(document.getElementById("myChart"), {
+    type: "bar",
+    data: {
+        labels: {{ subjects | safe }},
+        datasets: [{
+            label: "Marks",
+            data: {{ marks | safe }}
+        }]
+    }
+});
+</script>
+
+<a href="/records">🔙 Back</a>
+
+</body>
+</html>
